@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Returix — Geschäftsübersicht</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper:   #F5F3EE;
+      --white:   #FFFFFF;
+      --ink:     #0E0E0C;
+      --i2:      #5A5A56;
+      --i3:      #9A9A95;
+      --border:  #E8E5DE;
+      --border2: #D8D4CB;
+      --green:   #4A4A47;
+      --green-l: #EFEFEC;
+      --green-b: #CCCCC8;
+      --red:     #B83232;
+      --red-l:   #FDF0F0;
+
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans:  'Roboto', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      border-bottom: 1px solid var(--border);
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .logo-name {
+      font-family: var(--serif);
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      color: var(--ink);
+      letter-spacing: -0.4px;
+    }
+
+    .header-label {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--i3);
+    }
+
+    /* ── Page ── */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 72px 48px 100px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      margin-bottom: 72px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--i3);
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(40px, 6vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .hero-title em {
+      color: var(--i2);
+    }
+
+    .hero-body {
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--i2);
+      max-width: 620px;
+      margin-bottom: 36px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--i2);
+      background: var(--white);
+      border: 1px solid var(--border2);
+      border-radius: 100px;
+      padding: 5px 14px;
+    }
+
+    /* ── Section ── */
+    .section {
+      margin-bottom: 64px;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--i3);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 30px;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 28px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Cards ── */
+    .card-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .card-grid-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .card-grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 24px;
+    }
+
+    .card-eyebrow {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--i3);
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .card-body {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--i2);
+      line-height: 1.65;
+    }
+
+    /* ── Stat cards ── */
+    .stat {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--i3);
+      margin-bottom: 10px;
+    }
+
+    .stat-value {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 30px;
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-unit {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--i3);
+    }
+
+    /* ── Highlight card ── */
+    .card-green {
+      background: var(--green-l);
+      border-color: var(--green-b);
+    }
+
+    .card-green .card-body { color: var(--green); }
+    .card-green .card-eyebrow { color: var(--green); opacity: 0.7; }
+
+    .card-dark {
+      background: var(--ink);
+      border-color: var(--ink);
+    }
+
+    .card-dark .card-eyebrow { color: rgba(255,255,255,0.45); }
+    .card-dark .card-title,
+    .card-dark .card-body { color: rgba(255,255,255,0.9); }
+
+    /* ── Quote / Prose block ── */
+    .prose {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--i2);
+    }
+
+    .prose + .prose { margin-top: 14px; }
+
+    .prose strong {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* ── Flywheel ── */
+    .flywheel {
+      display: grid;
+      grid-template-columns: 1fr 28px 1fr 28px 1fr 28px 1fr;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 14px;
+    }
+
+    .fly-step {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 14px;
+      text-align: center;
+    }
+
+    .fly-step.active {
+      background: var(--ink);
+      border-color: var(--ink);
+    }
+
+    .fly-step .fly-title {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+
+    .fly-step.active .fly-title { color: #fff; }
+
+    .fly-step .fly-desc {
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--i3);
+      line-height: 1.4;
+    }
+
+    .fly-step.active .fly-desc { color: rgba(255,255,255,0.55); }
+
+    .fly-arrow {
+      text-align: center;
+      color: var(--border2);
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .flywheel-note {
+      text-align: center;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 13px;
+      color: var(--i3);
+      padding-top: 14px;
+      border-top: 1px dashed var(--border);
+    }
+
+    /* ── Roadmap timeline ── */
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .road {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .road.now {
+      background: var(--ink);
+      border-color: var(--ink);
+    }
+
+    .road-year {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--i3);
+      margin-bottom: 8px;
+    }
+
+    .road.now .road-year { color: rgba(255,255,255,0.5); }
+
+    .road-title {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .road.now .road-title { color: #fff; }
+
+    .road-desc {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--i3);
+      line-height: 1.5;
+    }
+
+    .road.now .road-desc { color: rgba(255,255,255,0.55); }
+
+    /* ── Finance table ── */
+    .fin-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+
+    .fin-table thead th {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--i3);
+      text-align: left;
+      padding: 0 16px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fin-table thead th:not(:first-child) {
+      text-align: right;
+    }
+
+    .fin-table tbody tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fin-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .fin-table tbody td {
+      padding: 12px 16px;
+      color: var(--i2);
+      font-weight: 300;
+    }
+
+    .fin-table tbody td:not(:first-child) {
+      text-align: right;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    .fin-table tbody tr.row-highlight td {
+      font-weight: 500;
+      color: var(--ink);
+      background: var(--green-l);
+    }
+
+    .fin-table tbody tr.row-highlight td:first-child {
+      border-radius: 8px 0 0 8px;
+    }
+
+    .fin-table tbody tr.row-highlight td:last-child {
+      border-radius: 0 8px 8px 0;
+    }
+
+    .fin-table .row-key td:first-child {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    /* ── List ── */
+    .check-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 18px;
+    }
+
+    .check-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .check-dot.red { background: var(--red); }
+
+    .check-text {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--i2);
+      line-height: 1.6;
+    }
+
+    .check-text strong {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* ── Summary card ── */
+    .summary-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 40px;
+    }
+
+    .summary-quote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--ink);
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .summary-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .summary-row {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .summary-key {
+      font-weight: 500;
+      color: var(--i3);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      width: 120px;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .summary-val {
+      font-weight: 300;
+      color: var(--i2);
+      line-height: 1.6;
+    }
+
+    .summary-val strong {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* ── Footer ── */
+    .site-footer {
+      padding: 28px 48px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-text {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--i3);
+    }
+
+    .footer-tagline {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 13px;
+      color: var(--i3);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 720px) {
+      .site-header { padding: 16px 24px; }
+      .page { padding: 48px 24px 72px; }
+      .card-grid-2, .card-grid-3, .card-grid-4 { grid-template-columns: 1fr; }
+      .flywheel {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .fly-arrow { display: none; }
+      .roadmap { grid-template-columns: 1fr 1fr; }
+      .site-footer { flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <a class="logo" href="#">
+    <img class="logo-mark" src="../Design/Logo/LogoReturix.png" alt="Returix Logo">
+    <span class="logo-name">returix</span>
+  </a>
+  <span class="header-label">Geschäftsübersicht · 2026</span>
+</header>
+
+<div class="page">
+
+  <!-- ── Hero ── -->
+  <div class="hero">
+    <p class="eyebrow">Pre&#8209;Purchase Intelligence · Wettbewerbsbeitrag 2026</p>
+    <h1 class="hero-title">Wir verhindern Retouren,<br><em>bevor sie entstehen.</em></h1>
+    <p class="hero-body">
+      Returix verbindet automatisches Rückgabefrist-Tracking für Konsumenten mit einer
+      B2B-Prediction-Engine für Online-Shops — gespeist aus einem shopübergreifenden
+      Datenflywheel, das kein Wettbewerber replizieren kann.
+    </p>
+    <div class="hero-tags">
+      <span class="tag">SaaS · D-A-CH</span>
+      <span class="tag">B2C Freemium</span>
+      <span class="tag">B2B ab 2027</span>
+      <span class="tag">E-Commerce</span>
+      <span class="tag">110 Mrd. € Markt</span>
+      <span class="tag">530 Mio. Retouren / Jahr</span>
+    </div>
+  </div>
+
+
+  <!-- ── 1. Geschäftsidee & Unternehmen ── -->
+  <div class="section">
+    <p class="section-label">1 — Geschäftsidee &amp; Unternehmen</p>
+    <h2 class="section-title">Was ist Returix?</h2>
+
+    <div class="card-grid card-grid-2" style="margin-bottom:20px">
+      <div class="card">
+        <p class="card-eyebrow">Das Problem</p>
+        <p class="card-title">Verpasste Fristen &amp; unkontrollierte Retouren</p>
+        <p class="card-body">Millionen Online-Shopper verpassen jährlich ihre Rückgabefristen — Bestellungen verteilen sich auf zehn verschiedene Shops, Fristen verschwinden in überfüllten Postfächern. Gleichzeitig leiden Online-Händler unter Retourenquoten von bis zu 60 % im Modebereich, ohne zu wissen warum.</p>
+      </div>
+      <div class="card card-green">
+        <p class="card-eyebrow">Die Lösung</p>
+        <p class="card-title">Ein System, zwei Seiten</p>
+        <p class="card-body">Returix verbindet sich per Google OAuth mit dem Gmail-Konto des Nutzers, erkennt Bestellbestätigungen automatisch und bündelt alle Rückgabefristen shopübergreifend in einem Dashboard — inklusive Erinnerungen und direkter Weiterleitung zur Retourenseite des jeweiligen Händlers.</p>
+      </div>
+    </div>
+
+    <div class="card-grid card-grid-3">
+      <div class="card">
+        <p class="card-eyebrow">Rechtsform</p>
+        <p class="card-title">Einzelunternehmen</p>
+        <p class="card-body">Mit geplanter Umwandlung in eine UG (haftungsbeschränkt) nach ersten Umsätzen.</p>
+      </div>
+      <div class="card">
+        <p class="card-eyebrow">Eigentumsstruktur</p>
+        <p class="card-title">Gründergeführt</p>
+        <p class="card-body">Alle Anteile liegen bei der Gründerin, um strategische Kontrolle in der Anfangsphase zu sichern. Externe Investoren möglich.</p>
+      </div>
+      <div class="card">
+        <p class="card-eyebrow">Branche</p>
+        <p class="card-title">SaaS · E-Commerce</p>
+        <p class="card-body">An der Schnittstelle aus Consumer-App (Productivity) und B2B-E-Commerce-Software (Pre-Purchase Intelligence). Zielmarkt: D-A-CH.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── 2. Produkt & Dienstleistung ── -->
+  <div class="section">
+    <p class="section-label">2 — Produkt &amp; Dienstleistung</p>
+    <h2 class="section-title">Was bietet Returix an?</h2>
+
+    <div class="card-grid card-grid-2" style="margin-bottom:20px">
+
+      <!-- B2C -->
+      <div>
+        <p style="font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--i3);margin-bottom:12px">B2C — Konsumenten</p>
+        <div class="card-grid" style="gap:10px">
+          <div class="card">
+            <p class="card-eyebrow">Kostenlos</p>
+            <p class="card-title">Basisversion</p>
+            <p class="card-body">Automatisches Frist-Tracking via Gmail-Scan, shopübergreifendes Dashboard, Erinnerungen. Dauerhaft kostenlos.</p>
+          </div>
+          <div class="card">
+            <p class="card-eyebrow">Premium · 2,99 €/Monat</p>
+            <p class="card-title">Erweitertes Tracking</p>
+            <p class="card-body">Passformempfehlungen, priorisierte E-Mail-Erinnerungen, markenübergreifende Fit-Intelligenz. Jahresabo: 24,99 € (ca. 30 % Rabatt).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- B2B -->
+      <div>
+        <p style="font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--i3);margin-bottom:12px">B2B — Online-Händler (ab 2027)</p>
+        <div class="card-grid" style="gap:10px">
+          <div class="card">
+            <p class="card-eyebrow">Widget-Lizenz · ab 499 €/Monat</p>
+            <p class="card-title">Returix for Shops</p>
+            <p class="card-body">Return-Prediction-Engine als Plugin oder API — erkennt wahrscheinliche Retouren im Checkout und warnt den Käufer in Echtzeit.</p>
+          </div>
+          <div class="card">
+            <p class="card-eyebrow">Performance-Modell</p>
+            <p class="card-title">5–15 % der Einsparungen</p>
+            <p class="card-body">Für große Shops: variable Vergütung auf Basis der tatsächlich eingesparten Retourenkosten. Du zahlst nur, wenn es wirkt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-grid card-grid-2">
+      <div class="card">
+        <p class="card-eyebrow">Entwicklungsstand</p>
+        <p class="card-title">Frontend-Prototyp bereit</p>
+        <p class="card-body">Konzept, Nutzerführung und Kernfunktionen der App sind als Prototyp umgesetzt. Backend-Anbindung mit automatischer E-Mail-Erkennung und Datenverarbeitung folgt als nächster Schritt.</p>
+      </div>
+      <div class="card">
+        <p class="card-eyebrow">Startkosten · Geschäftsausstattung</p>
+        <p class="card-title">100–500 € Initialaufwand</p>
+        <p class="card-body">Da Returix eine rein digitale SaaS-Lösung ist: Domain, SSL, Cloud-Hosting, Datenbank, Lizenzen, Gewerbeanmeldung. Technischer Grundaufbau als Eigenleistung erbracht.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── Flywheel ── -->
+  <div class="section">
+    <p class="section-label">Strategie</p>
+    <h2 class="section-title">Das Daten-Flywheel — der Burggraben</h2>
+
+    <div class="flywheel" style="margin-bottom:14px">
+      <div class="fly-step">
+        <div class="fly-title">Konsument nutzt</div>
+        <div class="fly-desc">kostenlos · Profil wächst</div>
+      </div>
+      <div class="fly-arrow">→</div>
+      <div class="fly-step">
+        <div class="fly-title">Daten fließen</div>
+        <div class="fly-desc">Passformsignale strukturiert</div>
+      </div>
+      <div class="fly-arrow">→</div>
+      <div class="fly-step">
+        <div class="fly-title">Modell lernt</div>
+        <div class="fly-desc">Marken-Fit-Intelligenz</div>
+      </div>
+      <div class="fly-arrow">→</div>
+      <div class="fly-step active">
+        <div class="fly-title">Shop zahlt</div>
+        <div class="fly-desc">weniger Retouren · ROI</div>
+      </div>
+    </div>
+    <p class="flywheel-note">Shop-Umsatz finanziert kostenlose Konsumenten-App → mehr Nutzer → bessere Daten → stärkeres Modell</p>
+  </div>
+
+
+  <!-- ── 3. Marketing ── -->
+  <div class="section">
+    <p class="section-label">3 — Marketing</p>
+    <h2 class="section-title">Vertrieb &amp; Wachstum</h2>
+
+    <div class="card-grid card-grid-2" style="margin-bottom:20px">
+      <div class="card">
+        <p class="card-eyebrow">B2C Vertrieb</p>
+        <p class="card-title">Volldigital, selbstgesteuert</p>
+        <p class="card-body">Nutzer meldet sich per Google-Login an, nutzt die kostenlose Version und steigt eigenständig auf Premium um — kein Vertriebsaufwand. Jahr 1: organisches Wachstum via Content &amp; SEO, Product-Hunt-Launch, TikTok- / Instagram-Kurzvideos, Empfehlungsprogramm (1 Monat Premium gratis pro Empfehlung).</p>
+      </div>
+      <div class="card">
+        <p class="card-eyebrow">B2B Vertrieb (ab Jahr 2)</p>
+        <p class="card-title">Persönliche Akquise → Inbound</p>
+        <p class="card-body">Direktakquise von 3–5 Pilot-Shops im D-A-CH-Raum für erste Case Studies. Diese bilden die Grundlage für skalierendes Inbound-Marketing. Ergänzt durch LinkedIn-Outreach, Fachartikel zu Retourenkosten und langfristig ein Performance-Modell ohne finanzielles Einstiegsrisiko für den Shop.</p>
+      </div>
+    </div>
+
+    <div class="card-grid card-grid-3">
+      <div class="card">
+        <p class="card-eyebrow">Jahr 1 · Organisch</p>
+        <p class="card-title">Content &amp; Community</p>
+        <p class="card-body">SEO auf "Rückgabefrist vergessen", Product Hunt, Social Short-Video, Referral-Programm.</p>
+      </div>
+      <div class="card">
+        <p class="card-eyebrow">Jahr 2 · Paid</p>
+        <p class="card-title">Performance &amp; Influencer</p>
+        <p class="card-body">Google Ads auf kaufstarke Keywords, Gastbeiträge auf Shopping-Blogs, Influencer-Kooperationen im Bereich Online-Shopping / Finanztipps.</p>
+      </div>
+      <div class="card">
+        <p class="card-eyebrow">Preisgestaltung B2C</p>
+        <p class="card-title">Freemium · 2,99 €</p>
+        <p class="card-body">Kostenlose Basis + Premium für 2,99 €/Monat (unter psychologischer 3-€-Schwelle). Jahresabo 24,99 € (≈ 2,08 €/Monat, 30 % Rabatt).</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── 4. Team ── -->
+  <div class="section">
+    <p class="section-label">4 — Gründer &amp; Team</p>
+    <h2 class="section-title">Wer steckt dahinter?</h2>
+
+    <div class="card-grid card-grid-2">
+      <div class="card card-dark">
+        <p class="card-eyebrow">Gründerin</p>
+        <p class="card-title">Carolin Unger</p>
+        <p class="card-body">Studentin der Interkulturellen Wirtschaftspsychologie (2. Semester) an der Hochschule Hamm-Lippstadt. Kenntnisse in Softwareentwicklung und digitalem Produktaufbau. Baut Returix eigenständig und kapitaleffizient auf.</p>
+      </div>
+      <div class="card">
+        <p class="card-eyebrow">Teamstruktur</p>
+        <p class="card-title">Einzelgründung</p>
+        <p class="card-body">Zum Start keine zusätzlichen Mitarbeiter erforderlich. Jährliche Personalkosten: 0 €. Managementbeteiligung nicht vorgesehen. Gründergeführt mit voller strategischer Kontrolle.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── 5. Finanzierung ── -->
+  <div class="section">
+    <p class="section-label">5 — Finanzierung</p>
+    <h2 class="section-title">Finanzplanung — 3 Geschäftsjahre</h2>
+
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:20px">
+      <table class="fin-table">
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>Jahr 1</th>
+            <th>Jahr 2</th>
+            <th>Jahr 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-key">
+            <td>A · Umsatz</td>
+            <td>1.000 €</td>
+            <td>6.500 €</td>
+            <td>40.000 €</td>
+          </tr>
+          <tr>
+            <td>B · Materialkosten</td>
+            <td>500 €</td>
+            <td>1.700 €</td>
+            <td>5.000 €</td>
+          </tr>
+          <tr>
+            <td>C · Personalkosten</td>
+            <td>0 €</td>
+            <td>0 €</td>
+            <td>0 €</td>
+          </tr>
+          <tr>
+            <td>D · Sonstige Kosten (10 %)</td>
+            <td>50 €</td>
+            <td>650 €</td>
+            <td>4.200 €</td>
+          </tr>
+          <tr>
+            <td>E · Geschäftsausstattung</td>
+            <td>500 €</td>
+            <td>0 €</td>
+            <td>0 €</td>
+          </tr>
+          <tr>
+            <td>F · Liquiditätsbedarf (30 %)</td>
+            <td>150 €</td>
+            <td>1.950 €</td>
+            <td>12.600 €</td>
+          </tr>
+          <tr>
+            <td>G · Summe Liquiditätsbedarf</td>
+            <td>650 €</td>
+            <td>1.950 €</td>
+            <td>12.600 €</td>
+          </tr>
+          <tr>
+            <td>H · davon Eigenmittel (20 %)</td>
+            <td>650 €</td>
+            <td>1.950 €</td>
+            <td>2.520 €</td>
+          </tr>
+          <tr>
+            <td>I · davon Kredite (80 %)</td>
+            <td>0 €</td>
+            <td>2.064 €</td>
+            <td>9.600 €</td>
+          </tr>
+          <tr>
+            <td>J · Zinssatz</td>
+            <td>0 %</td>
+            <td>0 %</td>
+            <td>6 %</td>
+          </tr>
+          <tr>
+            <td>K · Externe Kapitalkosten</td>
+            <td>0 €</td>
+            <td>0 €</td>
+            <td>576 €</td>
+          </tr>
+          <tr class="row-highlight">
+            <td>L · Ergebnis (A−B−C−D−K)</td>
+            <td>450 €</td>
+            <td>4.150 €</td>
+            <td>30.224 €</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card-grid card-grid-4">
+      <div class="stat">
+        <div class="stat-label">Jahr 1 · Umsatz</div>
+        <div class="stat-value">1 T€</div>
+        <div class="stat-unit">Markteintritt</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Jahr 2 · Umsatz</div>
+        <div class="stat-value">6,5 T€</div>
+        <div class="stat-unit">erste Skalierung</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Jahr 3 · Umsatz</div>
+        <div class="stat-value">40 T€</div>
+        <div class="stat-unit">B2B-Pilote aktiv</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Break-even</div>
+        <div class="stat-value">Monat 20–24</div>
+        <div class="stat-unit">bei Plan-Verlauf</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── 6. Chancen & Risiken ── -->
+  <div class="section">
+    <p class="section-label">6 — Chancen &amp; Risiken</p>
+    <h2 class="section-title">Wo liegt das Potenzial, wo die Gefahr?</h2>
+
+    <div class="card-grid card-grid-2">
+      <div>
+        <p style="font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:12px">Chancen</p>
+        <div class="check-list">
+          <div class="check-item">
+            <div class="check-dot"></div>
+            <div class="check-text"><strong>Stark wachsender E-Commerce-Markt</strong> — 110 Mrd. € D-A-CH, EU-Verpackungsverordnung ab 2026 als Rückenwind.</div>
+          </div>
+          <div class="check-item">
+            <div class="check-dot"></div>
+            <div class="check-text"><strong>Hohe Skalierbarkeit</strong> — rein digitales Produkt, keine physischen Kosten, globaler Rollout möglich.</div>
+          </div>
+          <div class="check-item">
+            <div class="check-dot"></div>
+            <div class="check-text"><strong>Fehlende direkte Konkurrenz</strong> — kein shopübergreifender, vollautomatischer Rückgabefrist-Tracker im D-A-CH-Markt.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:12px">Risiken</p>
+        <div class="check-list">
+          <div class="check-item">
+            <div class="check-dot red"></div>
+            <div class="check-text"><strong>Datenschutzbedenken</strong> bei der E-Mail-Integration (Gmail OAuth). Erfordert klares Datenschutzkonzept und DSGVO-Compliance.</div>
+          </div>
+          <div class="check-item">
+            <div class="check-dot red"></div>
+            <div class="check-text"><strong>Abhängigkeit von externen Schnittstellen</strong> — Änderungen an der Google API oder Gmail-Struktur können das Kernprodukt beeinflussen.</div>
+          </div>
+          <div class="check-item">
+            <div class="check-dot red"></div>
+            <div class="check-text"><strong>Markteintritt großer Akteure</strong> — Zalando, Amazon oder Google könnten ähnliche Features in bestehende Produkte integrieren.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── Roadmap ── -->
+  <div class="section">
+    <p class="section-label">Roadmap</p>
+    <h2 class="section-title">Von B2C zur Plattform</h2>
+
+    <div class="roadmap">
+      <div class="road now">
+        <div class="road-year">2026 · MVP</div>
+        <div class="road-title">B2C-Launch</div>
+        <div class="road-desc">Tracker, Gmail-Integration, Frist-Dashboard, App-Launch</div>
+      </div>
+      <div class="road">
+        <div class="road-year">2027 · Pilot</div>
+        <div class="road-title">B2B-Einstieg</div>
+        <div class="road-desc">3–5 Pilot-Shops, Widget-Beta, erste Case Studies</div>
+      </div>
+      <div class="road">
+        <div class="road-year">2028 · Skalierung</div>
+        <div class="road-title">B2B-Vertrieb</div>
+        <div class="road-desc">Inbound-Skalierung, API-Integrationen, EU-Rollout</div>
+      </div>
+      <div class="road">
+        <div class="road-year">2029+ · Plattform</div>
+        <div class="road-title">Standardlayer</div>
+        <div class="road-desc">EU-E-Commerce-Datenstandard für Pre-Purchase Intelligence</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── 7. Zusammenfassung ── -->
+  <div class="section">
+    <p class="section-label">7 — Zusammenfassung</p>
+    <h2 class="section-title">In einer Minute erklärt</h2>
+
+    <div class="summary-card">
+      <div class="summary-quote">
+        „Jede Retoure hat einen Grund. Returix lernt ihn — und verhindert sie beim nächsten Mal."
+      </div>
+      <div class="summary-items">
+        <div class="summary-row">
+          <div class="summary-key">Problem</div>
+          <div class="summary-val"><strong>530 Mio. Retourenpakete/Jahr in Deutschland</strong> — Verbraucher verpassen Fristen, Shops verlieren Milliarden.</div>
+        </div>
+        <div class="summary-row">
+          <div class="summary-key">Lösung</div>
+          <div class="summary-val">Returix verwaltet Rückgabefristen automatisch via Gmail — und warnt Käufer im Checkout vor wahrscheinlichen Fehlkäufen, <strong>bevor die Retoure entsteht</strong>.</div>
+        </div>
+        <div class="summary-row">
+          <div class="summary-key">Status</div>
+          <div class="summary-val">Frontend-Prototyp steht, App in Entwicklung — <strong>Launch 2026</strong>.</div>
+        </div>
+        <div class="summary-row">
+          <div class="summary-key">Markt</div>
+          <div class="summary-val"><strong>110 Mrd. € D-A-CH-E-Commerce</strong>, EU-Verpackungsverordnung ab 2026 als Rückenwind.</div>
+        </div>
+        <div class="summary-row">
+          <div class="summary-key">Modell</div>
+          <div class="summary-val"><strong>B2C-Freemium</strong> (2,99 €/Monat) + <strong>B2B-SaaS</strong> (ab 499 €/Monat).</div>
+        </div>
+        <div class="summary-row">
+          <div class="summary-key">Wettbewerb</div>
+          <div class="summary-val">Kein direkter Konkurrent im D-A-CH. <strong>Shopübergreifende Datenbasis als nachhaltiger Wettbewerbsvorteil</strong>.</div>
+        </div>
+        <div class="summary-row">
+          <div class="summary-key">Team</div>
+          <div class="summary-val">Einzelgründerin, HSHL Hamm-Lippstadt — baut eigenständig und kapitaleffizient auf.</div>
+        </div>
+        <div class="summary-row">
+          <div class="summary-key">Zahlen</div>
+          <div class="summary-val">Break-even Monat 20–24, <strong>ca. 40.000 € Umsatz in Jahr 3</strong>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <span class="footer-text">© 2026 Returix</span>
+  <span class="footer-tagline">Retouren verhindern, bevor sie entstehen.</span>
+</footer>
+
+</body>
+</html>
